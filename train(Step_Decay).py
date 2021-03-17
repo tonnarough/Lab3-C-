@@ -40,13 +40,6 @@ def parse_proto_example(proto):
   example['image'] = tf.image.resize(example['image'], tf.constant([RESIZE_TO, RESIZE_TO]))
   return example['image'], tf.one_hot(example['image/label'], depth=NUM_CLASSES)
 
-def step_decay(epoch,layer):
-  initial_lrate = 0.1
-  drop = 0.5
-  epochs_drop = 10.0
-  lrate = initial_lrate * math.pow(drop,math.floor((1+epoch)/epochs_drop))
-  return lrate
-
 def create_dataset(filenames, batch_size):
   """Create dataset from tfrecords file
   :tfrecords_files: Mask to collect tfrecords file of dataset
@@ -57,6 +50,13 @@ def create_dataset(filenames, batch_size):
     .cache()\
     .batch(batch_size)\
     .prefetch(tf.data.AUTOTUNE)
+
+def step_decay(epoch,layer):
+  initial_lrate = 0.001
+  drop = 0.5
+  epochs_drop = 5.0
+  lrate = initial_lrate * math.pow(drop,math.floor((1+epoch)/epochs_drop))
+  return lrate
 
 
 def build_model():
@@ -94,7 +94,7 @@ def main():
     validation_data=validation_dataset,
     callbacks=[
       tf.keras.callbacks.TensorBoard(log_dir),
-    LearningRateScheduler(step_decay)
+      LearningRateScheduler(step_decay)
     ]
   )
 
