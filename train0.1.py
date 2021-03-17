@@ -51,7 +51,6 @@ def create_dataset(filenames, batch_size):
     .batch(batch_size)\
     .prefetch(tf.data.AUTOTUNE)
 
-
 def build_model():
   inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3))
   model = EfficientNetB0(input_tensor=inputs,include_top=False,pooling='avg', weights='imagenet')
