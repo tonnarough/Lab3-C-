@@ -8,9 +8,13 @@
 ---
 ***
 <img width="499" alt="Снимок" src="https://user-images.githubusercontent.com/58634989/111524206-37115580-876d-11eb-86ef-0d0fab487656.PNG">
+
 ***Линейная диаграмма точности:***
+
 <img src="./epoch_categorical_accuracy_1_part.svg">
+
 ***Линейная диаграмма потерь:*** 
+
  <img src="./epoch_loss_1_part.svg">  
  <img src="./epoch_loss_1_part(2).svg"> 
  
