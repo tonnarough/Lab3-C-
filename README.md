@@ -4,6 +4,13 @@
 ---
 1)С использованием и техники обучения Transfer Learning обучить нейронную сеть EfficientNet-B0 (предварительно обученную на базе изображений imagenet) для решения задачи классификации изображений Oregon WildLife с использованием фиксированных темпов обучения 0.1, 0.01, 0.001, 0.0001
 ---
+Для этого задания был изменен темп обучения следующим образом:
+```
+optimizer=tf.optimizers.Adam(lr=0.1)
+optimizer=tf.optimizers.Adam(lr=0.01)
+optimizer=tf.optimizers.Adam(lr=0.001)
+optimizer=tf.optimizers.Adam(lr=0.0001)
+```
 Графики обучения для нейронной сети EfficientNetB0(предварительно обученной на базе изображений imagenet) с использованием фиксированных темпов обучения 0.1, 0.01, 0.001, 0.0001:
 ---
 <img width="499" alt="Снимок" src="https://user-images.githubusercontent.com/58634989/111524206-37115580-876d-11eb-86ef-0d0fab487656.PNG">
@@ -24,6 +31,40 @@
 
 **b. Экспоненциальное затухание (Exponential Decay)**
 
+Для пошагового затухания использовалась функция:
+```
+def step_decay(epoch,lr):
+  initial_lrate = 0.001
+  drop = 0.5
+  epochs_drop = 5.0
+  lrate = initial_lrate * math.pow(drop,math.floor((1+epoch)/epochs_drop))
+  return lrate
+  ```
+где:
+* `initial_lrate = 0.001` - означает начальный темп обучения 
+* `drop = 0.5` - снижение скорости обучение в 2 раза 
+* `epochs_drop = 5.0` - каждые 5 эпох происходит снижение скорости обучения 
+
+Для экспоненциального затухания использовалась функция:
+```
+def exp_decay(epoch,lr):
+  initial_lrate = 0.001
+  k = 0.1
+  lrate = initial_lrate * math.exp(-k*epoch)
+  return lrate
+```
+
+Также необходимо передать ***LearningRateScheduler(Планировщик скорости обучения)*** в ***callbacks(обратный вызов) - объект, который может выполнять действия на различных этапах обучения (например, в начале или в конце эпохи, до или после одной партии и т. д.).*** 
+```
+callbacks=[
+      tf.keras.callbacks.TensorBoard(log_dir),
+      LearningRateScheduler(step_decay)
+    ]
+```
+ Была импортирована библиотека math
+ ```
+ import math
+ ```
 Графики обучения для нейронной сети EfficientNetB0(предварительно обученной на базе изображений imagenet) с использованием следующих политик изменения темпа обучения(Пошаговое затухание (Step Decay),Экспоненциальное затухание (Exponential Decay)):
 ---
 ![gWxsfTEvShE](https://user-images.githubusercontent.com/58634989/111698094-7a3ff700-8847-11eb-81f9-2d9141aa94aa.jpg)
