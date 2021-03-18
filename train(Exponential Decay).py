@@ -52,7 +52,7 @@ def create_dataset(filenames, batch_size):
     .prefetch(tf.data.AUTOTUNE)
 
 def exp_decay(epoch,lr):
-  initial_lrate = 0.001
+  initial_lrate = 0.01
   k = 0.1
   lrate = initial_lrate * math.exp(-k*epoch)
   return lrate
