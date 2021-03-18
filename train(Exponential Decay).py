@@ -52,10 +52,11 @@ def create_dataset(filenames, batch_size):
     .prefetch(tf.data.AUTOTUNE)
 
 def exp_decay(epoch,lr):
-  initial_lrate = 0.1
+  initial_lrate = 0.001
   k = 0.1
   lrate = initial_lrate * math.exp(-k*epoch)
   return lrate
+
 
 def build_model():
   inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3))
@@ -80,7 +81,7 @@ def main():
   print(model.summary())
 
   model.compile(
-    optimizer=tf.optimizers.Adam(lr=0.0001),
+    optimizer=tf.optimizers.Adam(lr=0.1),
     loss=tf.keras.losses.categorical_crossentropy,
     metrics=[tf.keras.metrics.categorical_accuracy],
   )
