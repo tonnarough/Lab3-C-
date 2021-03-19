@@ -72,6 +72,9 @@ callbacks=[
 ***Линейная диаграмма точности:***
 <img src="./epoch_categorical_accuracy_2_part.svg">
 
+![zXEYg0Zm1kQ](https://user-images.githubusercontent.com/58634989/111715627-4b387e00-8865-11eb-9e3a-d6fb1da31a34.jpg)
+
+
 ***Линейная диаграмма потерь:*** 
 <img src="./epoch_loss_2_part.svg">  
 
