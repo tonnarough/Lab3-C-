@@ -13,10 +13,15 @@ optimizer=tf.optimizers.Adam(lr=0.0001)
 ```
 Графики обучения для нейронной сети EfficientNetB0(предварительно обученной на базе изображений imagenet) с использованием фиксированных темпов обучения 0.1, 0.01, 0.001, 0.0001:
 ---
-<img width="499" alt="Снимок" src="https://user-images.githubusercontent.com/58634989/111524206-37115580-876d-11eb-86ef-0d0fab487656.PNG">
+
+![Q0YuwPWV3Oc](https://user-images.githubusercontent.com/58634989/111717865-fba88100-8869-11eb-8f64-7de15df06741.jpg)
+
 
 ***Линейная диаграмма точности:***
 <img src="./epoch_categorical_accuracy_1_part.svg">
+
+![v5m8x1WfM4Y](https://user-images.githubusercontent.com/58634989/111717821-e7648400-8869-11eb-9f79-aab5c0035c9b.jpg)![Uploading Q0YuwPWV3Oc.jpg…]()
+
 
 ***Линейная диаграмма потерь:*** 
 <img src="./epoch_loss_1_part.svg">  
@@ -24,6 +29,8 @@ optimizer=tf.optimizers.Adam(lr=0.0001)
 <img src="./epoch_loss_1_part(2).svg"> 
 
 ***Анализ результатов:***
+
+
 
 2)Реализовать и применить в обучении следующие политики изменения темпа обучения, а также определить оптимальные параметры для каждой политики:
 ---
