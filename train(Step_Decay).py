@@ -51,8 +51,8 @@ def create_dataset(filenames, batch_size):
     .batch(batch_size)\
     .prefetch(tf.data.AUTOTUNE)
 
-def step_decay(epoch,layer):
-  initial_lrate = 0.001
+def step_decay(epoch,lr):
+  initial_lrate = 0.01
   drop = 0.5
   epochs_drop = 5.0
   lrate = initial_lrate * math.pow(drop,math.floor((1+epoch)/epochs_drop))
