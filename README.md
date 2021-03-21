@@ -106,9 +106,15 @@ callbacks=[
 ---
 ***Линейная диаграмма точности для наилучших результатов всех экспериментов:***
 
+![D6IvSuET8ZM (1)](https://user-images.githubusercontent.com/58634989/111906062-df6e3500-8a5f-11eb-93b4-29898469a800.jpg)
+
+<img src="./epoch_categorical_accuracy_comp.svg">
 
 ***Линейная диаграмма потерь для наилучших результатов всех экспериментов:*** 
 
+![4Twt9itmBSU](https://user-images.githubusercontent.com/58634989/111906071-e72dd980-8a5f-11eb-884f-9f33e2b3fc62.jpg)
+
+<img src="./epoch_loss_comp.svg">  
 
 ***Вывод:***
 
