@@ -73,18 +73,14 @@ callbacks=[
  ```
 Графики обучения для нейронной сети EfficientNetB0(предварительно обученной на базе изображений imagenet) с использованием следующих политик изменения темпа обучения(Пошаговое затухание (Step Decay),Экспоненциальное затухание (Exponential Decay)):
 ---
-
-![K0QcTAZH64s](https://user-images.githubusercontent.com/58634989/111903899-5225e300-8a55-11eb-8a1a-6adf427d4a4f.jpg)
-
 ***Линейная диаграмма точности для политики изменения темпа обучения StepDecay:***
+![K0QcTAZH64s](https://user-images.githubusercontent.com/58634989/111903899-5225e300-8a55-11eb-8a1a-6adf427d4a4f.jpg)
 
 <img src="./epoch_categorical_accuracy_step.svg">
 
-
+***Линейная диаграмма потерь для политики изменения темпа обучения StepDecay:*** 
 ![ghkIBgZn-z8](https://user-images.githubusercontent.com/58634989/111903972-944f2480-8a55-11eb-8308-072dd2da3335.jpg)
 
-
-***Линейная диаграмма потерь для политики изменения темпа обучения StepDecay:*** 
 
 <img src="./epoch_loss_step.svg">  
 
